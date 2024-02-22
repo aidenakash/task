@@ -38,17 +38,6 @@ const findRelatedData = async (txt) => {
   const result = await users.aggregate(pipeline);
   console.log(result.length);
   return result;
-
-  // const query = {
-  //   or: [
-  //     { Name: regex },
-  //     { country: regex },
-  //     { state: regex },
-  //     { city: regex },
-  //   ],
-  // };
-  // const data = await users.find(query);
-  // return data;
 };
 
 const findCountry = async (txt) => {
@@ -87,7 +76,6 @@ const findCountry = async (txt) => {
 const findState = async (country,sta) => {
   console.log(country);
   console.log(sta)
-  //const regex = new RegExp(country, "mi");
   const regex1 = new RegExp(sta,"mi")
   if (country) {
     const pipeline = [
@@ -101,21 +89,6 @@ const findState = async (country,sta) => {
     return result.map((item) => {
       return item.state;
     });
-    // } else {
-    //   const pipeline = [
-    //     { $group: { _id: "$state" } },
-    //     { $project: { state: "$_id", _id: 0 } },
-    //     { $sort: { state: 1 } },
-    //   ];
-
-    //   const result = await users.aggregate(pipeline);
-    //   console.log(result.length);
-    //   console.log(result);
-    //   return result.map((item) => {
-    //     return item.state;
-    //   });
-
-    // return await users.find({ $and: [{ country: country }] });
   }
 };
 
