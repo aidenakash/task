@@ -1,24 +1,24 @@
 const { users } = require("./module");
 
 const findAllUser = async (txt) => {
-  // return await users.find();
-  const regex = new RegExp("a", "mi");
-  const pipeline = [
-    {$match:{Name:regex}},
-    {$unwind:"$address"},
-    {$project:{country:1,address:"$address",_id:0}},
-     {$group:{_id:"$country"}},
-     {$sort:{_id:1}},
-    {$addFields:{planet:"earth"}},
-   //{ $count : 'total_documents' }
-// {$facet:{ 
-//           Country: [{ $group: { _id: "$country", count: { $sum: 1 } } }],
+   return await users.find();
+//   const regex = new RegExp("a", "mi");
+//   const pipeline = [
+//     {$match:{Name:regex}},
+//     {$unwind:"$address"},
+//     {$project:{country:1,address:"$address",_id:0}},
+//      {$group:{_id:"$country"}},
+//      {$sort:{_id:1}},
+//     {$addFields:{planet:"earth"}},
+//    //{ $count : 'total_documents' }
+// // {$facet:{ 
+// //           Country: [{ $group: { _id: "$country", count: { $sum: 1 } } }],
          
-//         }},  
-  ];
-  const result = await users.aggregate(pipeline)
-  console.log(result.length)
-  return result
+// //         }},  
+//   ];
+//   const result = await users.aggregate(pipeline)
+//   console.log(result.length)
+//   return result
 };
 
 const findRelatedData = async (txt) => {
