@@ -56,7 +56,7 @@ const findCountry = async (txt) => {
       
     ];
 
-    const result = await users.aggregate(pipeline);
+   const  result = await users.aggregate(pipeline);
     console.log(result)
     return result[0].country
   } else {
